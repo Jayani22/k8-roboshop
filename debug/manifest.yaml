@@ -10,3 +10,4 @@ spec:
   containers:
   - name: debug
     image: jayani23/debug:v1
+    imagePullPolicy: Always 
