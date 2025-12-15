@@ -77,7 +77,7 @@ metadata:
   labels:
     project: roboshop
     component: frontend
-    tier: backend
+    tier: frontend
 spec:
   replicas: 1
   selector:
@@ -85,14 +85,14 @@ spec:
     matchLabels:
       project: roboshop
       component: frontend
-      tier: backend
+      tier: frontend
   # pod definition
   template:
     metadata: 
       labels:
         project: roboshop
         component: frontend
-        tier: backend
+        tier: frontend
     spec:
       containers:
       - name: frontend
@@ -118,7 +118,7 @@ spec:
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
       volumes:
-      - name: nginx-conf
+      - name: nginx-config
         configMap:
           name: frontend
 ---
@@ -135,5 +135,5 @@ spec:
     tier: backend
   ports:
     - protocol: TCP
-      port: 8080 # service port
+      port: 80 # service port
       targetPort: 8080 # container port
