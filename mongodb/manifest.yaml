@@ -28,7 +28,7 @@ spec:
       - name: mongodb
         image: jayani23/mongodb:v1
         readinessProbe:
-          tcpSocker:
+          tcpSocket:
             port: 27017
           initialDelaySeconds: 10
           periodSeconds: 10
