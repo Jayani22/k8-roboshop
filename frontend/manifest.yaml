@@ -88,7 +88,7 @@ spec:
       tier: frontend
   # pod definition
   template:
-    metadata: 
+    metadata:
       labels:
         project: roboshop
         component: frontend
@@ -100,7 +100,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - name: liveness-port
-          containerPort: 80
+          containerPort: 8080
         readinessProbe:
           httpGet:
             path: /
@@ -124,7 +124,7 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-metadata: 
+metadata:
   name: frontend
   namespace: roboshop
 spec:
@@ -132,7 +132,7 @@ spec:
   selector:
     project: roboshop
     component: frontend
-    tier: backend
+    tier: frontend
   ports:
     - protocol: TCP
       port: 80 # service port
